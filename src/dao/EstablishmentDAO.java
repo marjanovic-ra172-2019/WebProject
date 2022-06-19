@@ -38,14 +38,14 @@ private void loadEstablishments(String contextPath){
 
 		 String line,name="";
 	     EstablishmentType type=null;
-		 ArrayList<String> trainings=new ArrayList<String>();
 		 Boolean open=false;
 		 Address address;
-		 float averageGrade;
-		 WorkHours workingHours;
-		 StringTokenizer st;
+		 Double averageGrade;
+		 //WorkHours workingHours;
+		// StringTokenizer st;
 
 		 while ((line = in.readLine()) != null) {
+			 	ArrayList<String> trainings=new ArrayList<String>();
 				line = line.trim();
 				if (line.equals("") || line.indexOf('#') == 0)
 					continue;
@@ -59,8 +59,8 @@ private void loadEstablishments(String contextPath){
 					}
 					open=Boolean.parseBoolean(tokens[3]);
 					String adresa[] =tokens[4].split(",");
-					address=new Address(adresa[0],Float.parseFloat(adresa[1]));
-					averageGrade=Float.parseFloat(tokens[5]);
+					address=new Address(adresa[0],Double.parseDouble(adresa[1]));
+					averageGrade=Double.parseDouble(tokens[5]);
 					
 
 					establishments.add(new SportsEstablishment(name, type, trainings, open, address,averageGrade));
@@ -79,4 +79,85 @@ private void loadEstablishments(String contextPath){
 	}
 }
 
+	public Collection<SportsEstablishment> searchNames(String name)
+	{
+		name=name.trim();
+		ArrayList<SportsEstablishment> filteredEstablishments = new ArrayList<SportsEstablishment>();
+
+		
+		for (SportsEstablishment s : establishments) 
+		{
+			if(validateSearchNames(s, name))
+			filteredEstablishments.add(s);
+		} 
+		return filteredEstablishments;
+	}
+	private boolean validateSearchNames(SportsEstablishment establishment, String name) {
+		if(establishment.getName().toLowerCase().contains(name.toLowerCase()))
+		return true;
+		else return false;
+		}
+
+	public Collection<SportsEstablishment> searchType(String type) {
+
+		type=type.trim();
+		ArrayList<SportsEstablishment> filteredEstablishments = new ArrayList<SportsEstablishment>();
+
+		
+		for (SportsEstablishment s : establishments) 
+		{
+			if(validateSearchType(s, type))
+			filteredEstablishments.add(s);
+		} 
+		return filteredEstablishments;
+	
+	}
+	private boolean validateSearchType(SportsEstablishment establishment, String type) {
+		if(establishment.getType().toString().toLowerCase().contains(type.toLowerCase()))
+		return true;
+		else return false;
+		}
+
+	public Collection<SportsEstablishment> searchAddress(String address) {
+
+		address=address.trim();
+		ArrayList<SportsEstablishment> filteredEstablishments = new ArrayList<SportsEstablishment>();
+
+		
+		for (SportsEstablishment s : establishments) 
+		{
+			if(validateSearchAddress(s, address))
+			filteredEstablishments.add(s);
+		} 
+		return filteredEstablishments;
+		}
+	
+	private boolean validateSearchAddress(SportsEstablishment establishment, String address) {
+		if(establishment.getLocation().getName().toLowerCase().contains(address.toLowerCase()))
+		return true;
+		else if(establishment.getLocation().getNumber().toString().toLowerCase().contains(address.toLowerCase()))
+			return true;
+		else
+			return false;
+		}
+
+	public Collection<SportsEstablishment> searchGrade(String grade) {
+		
+		ArrayList<SportsEstablishment> filteredEstablishments = new ArrayList<SportsEstablishment>();
+
+		
+		for (SportsEstablishment s : establishments) 
+		{
+			if(validateSearchGrade(s, grade))
+			filteredEstablishments.add(s);
+		} 
+		return filteredEstablishments;
+		}
+	
+	private boolean validateSearchGrade(SportsEstablishment establishment, String grade) {
+		if(establishment.getAverageGrade().toString().toLowerCase().contains(grade.toLowerCase()))
+		return true;
+		else
+		return false;
+		}
 }

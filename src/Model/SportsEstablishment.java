@@ -12,7 +12,7 @@ public class SportsEstablishment {
 	private boolean open;
 	private Address location;
 	// private Image logoObject;
-	private float averageGrade;
+	private Double averageGrade;
 	private WorkHours workingHours;
 	
 	public String getName() {
@@ -45,10 +45,10 @@ public class SportsEstablishment {
 	public void setLocation(Address location) {
 		this.location = location;
 	}
-	public float getAverageGrade() {
+	public Double getAverageGrade() {
 		return averageGrade;
 	}
-	public void setAverageGrade(float averageGrade) {
+	public void setAverageGrade(Double averageGrade) {
 		this.averageGrade = averageGrade;
 	}
 	public WorkHours getWorkingHours() {
@@ -58,7 +58,7 @@ public class SportsEstablishment {
 		this.workingHours = workingHours;
 	}
 	public SportsEstablishment(String name, EstablishmentType type, ArrayList<String> trainings, boolean open,
-			Address location, float averageGrade) {
+			Address location, Double averageGrade) {
 		super();
 		this.name = name;
 		this.type = type;

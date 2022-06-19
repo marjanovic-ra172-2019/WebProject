@@ -43,5 +43,36 @@ public class EstablishmentService {
 		EstablishmentDAO dao = (EstablishmentDAO) ctx.getAttribute("establishmentDAO");
 		return dao.findAll();
 	}
+
+	@GET
+	@Path("name/{name}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Collection<SportsEstablishment> searchEstablishmentsForName(@PathParam("name") String name) {
+		EstablishmentDAO dao = (EstablishmentDAO) ctx.getAttribute("establishmentDAO");
+		return dao.searchNames(name);
+	}
 	
+	@GET
+	@Path("type/{type}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Collection<SportsEstablishment> searchEstablishmentsForType(@PathParam("type") String type) {
+		EstablishmentDAO dao = (EstablishmentDAO) ctx.getAttribute("establishmentDAO");
+		return dao.searchType(type);
+	}
+	
+	@GET
+	@Path("address/{address}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Collection<SportsEstablishment> searchEstablishmentsForAddress(@PathParam("address") String address) {
+		EstablishmentDAO dao = (EstablishmentDAO) ctx.getAttribute("establishmentDAO");
+		return dao.searchAddress(address);
+	}
+	
+	@GET
+	@Path("grade/{grade}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Collection<SportsEstablishment> searchEstablishmentsForGrade(@PathParam("grade") String grade) {
+		EstablishmentDAO dao = (EstablishmentDAO) ctx.getAttribute("establishmentDAO");
+		return dao.searchGrade(grade);
+	}
 }

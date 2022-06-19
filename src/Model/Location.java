@@ -2,26 +2,26 @@ package Model;
 
 
 public class Location{
-    private float getLatitude;
-	private float getLongitude;
+    private Double getLatitude;
+	private Double getLongitude;
 	private Address adress;
 	
-	public Location(float getLatitude, float getLongitude, Address adress) {
+	public Location(Double getLatitude, Double getLongitude, Address adress) {
 		super();
 		this.getLatitude = getLatitude;
 		this.getLongitude = getLongitude;
 		this.adress = adress;
 	}
-	public float getGetLatitude() {
+	public Double getGetLatitude() {
 		return getLatitude;
 	}
-	public void setGetLatitude(float getLatitude) {
+	public void setGetLatitude(Double getLatitude) {
 		this.getLatitude = getLatitude;
 	}
-	public float getGetLongitude() {
+	public Double getGetLongitude() {
 		return getLongitude;
 	}
-	public void setGetLongitude(float getLongitude) {
+	public void setGetLongitude(Double getLongitude) {
 		this.getLongitude = getLongitude;
 	}
 	public Address getAdress() {

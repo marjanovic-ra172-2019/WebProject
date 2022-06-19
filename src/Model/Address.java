@@ -2,18 +2,18 @@ package Model;
 
 public class Address {
 	private String name;
-	private float number;
+	private Double number;
 	private String city;
 	private int postalNum;
 	
-	public Address(String name, float number) {
+	public Address(String name, Double number) {
 		super();
 		this.name = name;
 		this.number = number;
 		this.city = "";
 		this.postalNum = 0;
 	}
-	public Address(String name, float number, String city, int postalNum) {
+	public Address(String name, Double number, String city, int postalNum) {
 		super();
 		this.name = name;
 		this.number = number;
@@ -27,10 +27,10 @@ public class Address {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public float getNumber() {
+	public Double getNumber() {
 		return number;
 	}
-	public void setNumber(float number) {
+	public void setNumber(Double number) {
 		this.number = number;
 	}
 	public String getCity() {
