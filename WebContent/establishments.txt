@@ -1,0 +1,4 @@
+Spartan;GYM;xyz,moc,cthun;true;Brace Dronjak,12;5.0;06;18
+Synergy Training centar;GYM;xyz,moc,cthun;true;Veselina Masleše,74;9.29;06;18
+SC Sajmište Otvoreni Bazen;POOL;xyz,moc,cthun;true;Novosadskog sajma,37;7.5;06;18
+GDM sportski centar;SPORTSCENTER;xyz,moc,cthun;true;Hajduk Veljkova,11;8.1;06;18
