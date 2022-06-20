@@ -26,7 +26,7 @@ public class User {
 		this.dateOfBirth = null;
 		this.role = null;
 		}
-
+	
 	public User(String username, String password, String name, String lastName, Gender gender, Date dateOfBirth,
 			Role role) {
 		super();

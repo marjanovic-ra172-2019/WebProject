@@ -1,8 +1,8 @@
 package enums;
 
 public enum Role {
-	Administrator,
-	Manager,
-	Trainer,
-	Customer
+	ADMINISTRATOR,
+	MANAGER,
+	TRAINER,
+	CUSTOMER
 }

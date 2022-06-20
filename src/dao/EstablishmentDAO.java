@@ -41,9 +41,7 @@ private void loadEstablishments(String contextPath){
 		 Boolean open=false;
 		 Address address;
 		 Double averageGrade;
-		 //WorkHours workingHours;
-		// StringTokenizer st;
-
+		 
 		 while ((line = in.readLine()) != null) {
 			 	ArrayList<String> trainings=new ArrayList<String>();
 				line = line.trim();
