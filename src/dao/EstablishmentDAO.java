@@ -5,14 +5,9 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.StringTokenizer;
-
 import enums.EstablishmentType;
 import Model.Address;
-import Model.Location;
 import Model.SportsEstablishment;
-import Model.Training;
-import Model.WorkHours;
 
 public class EstablishmentDAO {
 

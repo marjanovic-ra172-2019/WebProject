@@ -5,7 +5,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.StringTokenizer;
 
 import Model.User;
 import enums.Gender;
@@ -87,7 +86,6 @@ public class UserDao {
 	}
 
 	public Boolean add(User user) {
-		System.out.println(1);
 		if(users.add(user))
 			return true;
 		return false;
