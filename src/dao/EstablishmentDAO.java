@@ -33,7 +33,6 @@ private void loadEstablishments(String contextPath){
 
 		 String line,name="";
 	     EstablishmentType type=null;
-		 Boolean open=false;
 		 Address address;
 		 Double averageGrade;
 		 
@@ -50,13 +49,14 @@ private void loadEstablishments(String contextPath){
 					for(String tr:training) {
 						trainings.add(tr);
 					}
-					open=Boolean.parseBoolean(tokens[3]);
-					String adresa[] =tokens[4].split(",");
+					String startTime=tokens[3];
+					String endTime=tokens[4];
+					String adresa[] =tokens[5].split(",");
 					address=new Address(adresa[0],Double.parseDouble(adresa[1]));
-					averageGrade=Double.parseDouble(tokens[5]);
+					averageGrade=Double.parseDouble(tokens[6]);
 					
 
-					establishments.add(new SportsEstablishment(name, type, trainings, open, address,averageGrade));
+					establishments.add(new SportsEstablishment(name, type, trainings,startTime,endTime, address,averageGrade));
 			}
 		 
 		 
@@ -70,6 +70,7 @@ private void loadEstablishments(String contextPath){
 			catch (Exception e) { }
 		}
 	}
+
 }
 
 	public Collection<SportsEstablishment> searchNames(String name)

@@ -29,7 +29,7 @@ Vue.component("register", {
        			</option>
    				</select>
    				</td></tr>
-   				<tr><button v-on:click="Register">Register</button></tr>
+   			<tr><button v-on:click="Register">Register</button></tr>
 			
 			</table>
 			<div v-show="showEmptyMessage">
@@ -50,8 +50,10 @@ Vue.component("register", {
 					this.showEmptyMessage=true;
 					return;
 				}
+				else 				    
+					this.showEmptyMessage=false;
+
 					this.user1.gender=this.selected.id;
-				    this.showEmptyMessage=false;
 				    axios.get('rest/username/'+ this.user1.username).
 					then(response => (this.Data=response.data));
 					

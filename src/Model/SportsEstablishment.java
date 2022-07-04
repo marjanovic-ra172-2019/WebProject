@@ -15,6 +15,26 @@ public class SportsEstablishment {
 	private Double averageGrade;
 	private WorkHours workingHours;
 	
+	public SportsEstablishment(String name, EstablishmentType type, Address location, String startTime, String endTime) {
+		super();
+		this.name = name;
+		this.type = type;
+		this.location = location;
+		this.workingHours = new WorkHours(startTime,endTime);
+	}
+	
+	public SportsEstablishment(String name, EstablishmentType type, ArrayList<String> trainings, String startTime, String endTime,
+			Address location, Double averageGrade) {
+		super();
+		this.name = name;
+		this.type = type;
+		this.trainings = trainings;
+		this.workingHours = new WorkHours(startTime,endTime);
+		this.location = location;
+		this.averageGrade = averageGrade;
+	}
+	
+	
 	public String getName() {
 		return name;
 	}
@@ -29,7 +49,7 @@ public class SportsEstablishment {
 	}
 	public ArrayList<String> getTrainings() {
 		return trainings;
-	}
+	} 
 	public void setTrainings(ArrayList<String> trainings) {
 		this.trainings = trainings;
 	}
@@ -57,16 +77,7 @@ public class SportsEstablishment {
 	public void setWorkingHours(WorkHours workingHours) {
 		this.workingHours = workingHours;
 	}
-	public SportsEstablishment(String name, EstablishmentType type, ArrayList<String> trainings, boolean open,
-			Address location, Double averageGrade) {
-		super();
-		this.name = name;
-		this.type = type;
-		this.trainings = trainings;
-		this.open = open;
-		this.location = location;
-		this.averageGrade = averageGrade;
-	}
+	
 
 
 }

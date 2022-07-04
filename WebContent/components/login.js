@@ -23,21 +23,23 @@ Vue.component("login", {
 	methods : {
 		Login:function(){
 			
-			if(this.user.username===null||this.user.password===null){return};
+			if(this.user.username===null||this.user.password===null)
+			{
+				return
+			}
 			
 			axios.post('rest/login', this.user).
 				then(response => (this.Data=response.data));
-				
+			
+	
 			if(this.Data===true)
 			{
 			window.location.href= "http://localhost:8080/FitPall/establishments.html";
 			return;
 			}
-			else
-			{
-				this.showEmptyMessage=!this.Data;
-				return;
-			}
+			this.showEmptyMessage=!this.Data;
+				
+			
 		},
 		
 

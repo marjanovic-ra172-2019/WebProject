@@ -1,4 +1,4 @@
-Spartan;GYM;xyz,moc,cthun;true;Brace Dronjak,12;5.0;06;18
-Synergy Training centar;GYM;xyz,moc,cthun;true;Veselina Masleše,74;9.29;06;18
-SC Sajmište Otvoreni Bazen;POOL;xyz,moc,cthun;true;Novosadskog sajma,37;7.5;06;18
-GDM sportski centar;SPORTSCENTER;xyz,moc,cthun;true;Hajduk Veljkova,11;8.1;06;18
+Spartan;GYM;xyz,moc,cthun;12:00;19:00;Brace Dronjak,12;5.0;06;18
+Synergy Training centar;GYM;xyz,moc,cthun;10:00;13:00;Veselina Masleše,74;9.29;06;18
+SC Sajmište Otvoreni Bazen;POOL;xyz,moc,cthun;8:00;10:00;Novosadskog sajma,37;7.5;06;18
+GDM sportski centar;SPORTSCENTER;xyz,moc,cthun;9:00;15:00;Hajduk Veljkova,11;8.1;06;18
