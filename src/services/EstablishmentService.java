@@ -49,10 +49,6 @@ public class EstablishmentService {
 	@Path("/addest")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Boolean addEstablishment(SportsEstablishment establishment) {
-		System.out.println(establishment.getName());
-		System.out.println(establishment.getLocation().getName());
-		System.out.println(establishment.getLocation().getNumber());
-
 		EstablishmentDAO dao = (EstablishmentDAO) ctx.getAttribute("establishmentDAO");
 		return dao.add(establishment);
 	}	
