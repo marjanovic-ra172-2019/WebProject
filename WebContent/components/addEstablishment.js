@@ -52,8 +52,8 @@ Vue.component("addest", {
 					
 				axios.post('rest/establishments/addest/', this.establishment).
 				then(response => (this.register=response.data));
-;
-					//router.push(`/`);
+
+				router.push(`/`);
 				return;
 					
 			}	

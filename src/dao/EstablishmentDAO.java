@@ -25,6 +25,7 @@ public Collection<SportsEstablishment> findAll() {
 
 private void loadEstablishments(String contextPath){
 	BufferedReader in = null;
+	establishments=new ArrayList<SportsEstablishment>();
 	try {
 		File file = new File(contextPath + "/establishments.txt");
 		
@@ -154,4 +155,9 @@ private void loadEstablishments(String contextPath){
 		else
 		return false;
 		}
+
+	public Boolean add(SportsEstablishment establishment) {
+		if(establishments.add(establishment))
+			return true;
+		return false;	}
 }

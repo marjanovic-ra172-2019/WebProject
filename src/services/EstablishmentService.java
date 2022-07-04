@@ -53,8 +53,8 @@ public class EstablishmentService {
 		System.out.println(establishment.getLocation().getName());
 		System.out.println(establishment.getLocation().getNumber());
 
-		//EstablishmentDAO dao = (EstablishmentDAO) ctx.getAttribute("establishmentDAO");
-		return true;
+		EstablishmentDAO dao = (EstablishmentDAO) ctx.getAttribute("establishmentDAO");
+		return dao.add(establishment);
 	}	
 
 	@GET
