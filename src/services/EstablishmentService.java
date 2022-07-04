@@ -4,7 +4,9 @@ import java.util.Collection;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.ServletContext;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -13,6 +15,7 @@ import javax.ws.rs.core.MediaType;
 
 import dao.EstablishmentDAO;
 import Model.SportsEstablishment;
+import Model.WorkHours;
 
 @Path("/establishments")
 public class EstablishmentService {
@@ -40,6 +43,19 @@ public class EstablishmentService {
 		EstablishmentDAO dao = (EstablishmentDAO) ctx.getAttribute("establishmentDAO");
 		return dao.findAll();
 	}
+	
+	
+	@POST
+	@Path("/addest")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Boolean addEstablishment(SportsEstablishment establishment) {
+		System.out.println(establishment.getName());
+		System.out.println(establishment.getLocation().getName());
+		System.out.println(establishment.getLocation().getNumber());
+
+		//EstablishmentDAO dao = (EstablishmentDAO) ctx.getAttribute("establishmentDAO");
+		return true;
+	}	
 
 	@GET
 	@Path("name/{name}")

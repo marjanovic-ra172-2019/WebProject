@@ -56,7 +56,7 @@ private void loadEstablishments(String contextPath){
 					averageGrade=Double.parseDouble(tokens[6]);
 					
 
-					establishments.add(new SportsEstablishment(name, type, trainings,startTime,endTime, address,averageGrade));
+					establishments.add(new SportsEstablishment(name, type, trainings,startTime,endTime,address,averageGrade));
 			}
 		 
 		 

@@ -4,7 +4,7 @@ Vue.component("register", {
 		  Data:null,
 	      showEmptyMessage2: false,
 	      register: null,
-	      user1: {username: null,password: null,name:null,lastName:null,gender:'FEMALE',dateOfBirth:null,role:'CUSTOMER'},
+	      user1: {username: null,password: null,name:null,lastName:null,gender:null,dateOfBirth:null,role:'CUSTOMER'},
 	      showEmptyMessage: false,
 	       selected: '',
 	       products: [

@@ -7,13 +7,17 @@ public class WorkHours {
 	private String endTime;
 
 	
-	public WorkHours(String startTime, String endTime) {
+	public WorkHours(String StartTime, String EndTime) {
 		super();
-		this.startTime = startTime;
-		this.endTime = endTime;
+		this.startTime = StartTime;
+		this.endTime = EndTime;
 	}
 	
-	
+	public WorkHours() {
+		super();
+		this.startTime = null;
+		this.endTime = null;
+	}
 	
 	public String getStartTime() {
 		return startTime;

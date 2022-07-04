@@ -21,6 +21,13 @@ public class Address {
 		this.postalNum = postalNum;
 	}
 	
+	public Address(String location) {
+		String adresa[] =location.split(",");
+		this.name = adresa[0];
+		this.number = Double.parseDouble(adresa[1]);
+		this.city = "";
+		this.postalNum = 0;
+	}
 	public String getName() {
 		return name;
 	}

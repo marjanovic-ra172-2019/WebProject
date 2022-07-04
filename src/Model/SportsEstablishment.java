@@ -15,26 +15,53 @@ public class SportsEstablishment {
 	private Double averageGrade;
 	private WorkHours workingHours;
 	
-	public SportsEstablishment(String name, EstablishmentType type, Address location, String startTime, String endTime) {
+	public SportsEstablishment() {
+		super();
+		this.name = null;
+		this.type = type.GYM;
+		this.trainings = null;
+		this.workingHours = null;
+		this.location = null;
+		this.averageGrade = 0.0;
+	}
+
+	public SportsEstablishment(String name, EstablishmentType type, String location) {
+		super();
+		this.name = name;
+		this.type = type;
+		this.location = new Address(location);
+	}
+	
+	public SportsEstablishment(String name, EstablishmentType type, Address location, String StartTime, String EndTime) {
 		super();
 		this.name = name;
 		this.type = type;
 		this.location = location;
-		this.workingHours = new WorkHours(startTime,endTime);
+		this.workingHours = new WorkHours(StartTime,EndTime);
 	}
 	
-	public SportsEstablishment(String name, EstablishmentType type, ArrayList<String> trainings, String startTime, String endTime,
+	public SportsEstablishment(String name, EstablishmentType type, ArrayList<String> trainings, WorkHours hours,
 			Address location, Double averageGrade) {
 		super();
 		this.name = name;
 		this.type = type;
 		this.trainings = trainings;
-		this.workingHours = new WorkHours(startTime,endTime);
+		this.workingHours =hours;
 		this.location = location;
 		this.averageGrade = averageGrade;
 	}
 	
 	
+	public SportsEstablishment(String name2, EstablishmentType type2, ArrayList<String> trainings2, String startTime,
+			String endTime, Address address, Double averageGrade2) {
+		this.name = name2;
+		this.type = type2;
+		this.trainings = trainings2;
+		this.workingHours=new WorkHours(startTime,endTime);
+		this.location = address;
+		this.averageGrade = averageGrade2;
+	}
+
 	public String getName() {
 		return name;
 	}

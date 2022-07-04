@@ -2,9 +2,8 @@ Vue.component("addest", {
 	data: function () {
 		var Data
 	    return {
-		
-	      establishments: null,
-	      establishment: {name: null, type:null,location:null},
+		  register:null,
+	      establishment: {name:null,type:null,trainings:null,open:false,location:null,averageGrade:0.0,workingHours:null},
 	      showEmptyMessage: false,
 		  selected: '',
 		  types: [
@@ -13,6 +12,7 @@ Vue.component("addest", {
      	 	{id: 'SPORTSCENTER', name: 'Sportski Centar'},
      	 	{id: 'DANCESTUDIO', name: 'Dance studio'}
     		]
+    	
 	    }
 	},
 	    template: ` 
@@ -29,7 +29,8 @@ Vue.component("addest", {
    				</td></tr>
 			
 			<tr><td>Location</td><td><input type="text" v-model = "establishment.location" name="location"></td></tr>
-			
+			<tr><button v-on:click="Register">Register</button></tr>
+
 			</table>
 
     	
@@ -42,7 +43,20 @@ Vue.component("addest", {
        
     },
     methods : {
-		
+		Register: function(){
+				event.preventDefault();
+						    
+				
+				this.establishment.type=this.selected.id;
+					
+					
+				axios.post('rest/establishments/addest/', this.establishment).
+				then(response => (this.register=response.data));
+;
+					//router.push(`/`);
+				return;
+					
+			}	
 		
 	}
    
