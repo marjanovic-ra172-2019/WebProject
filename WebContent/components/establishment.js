@@ -16,7 +16,10 @@ Vue.component("establishment", {
 			<tr><td>Location</td><td><input type="text" v-model = "establishment.location.name + establishment.location.number" name="location"></td></tr>
 			<tr><td>StartTime</td><td><input type="text" v-model = "establishment.workingHours.startTime" name="startTime"></td></tr>
 			<tr><td>EndTime</td><td><input type="text" v-model = "establishment.workingHours.endTime" name="endTime"></td></tr>
-			
+			<tr>ALL Trainings</tr>
+			<tr v-for="p in establishment.trainings">
+	    			<td>{{p}}</td>
+	    	</tr>
 			</table>
 </div>		  
 `
