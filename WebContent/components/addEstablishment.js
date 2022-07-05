@@ -3,7 +3,7 @@ Vue.component("addest", {
 		var Data
 	    return {
 		  register:null,
-	      establishment: {name:null,type:null,trainings:null,open:false,location:null,averageGrade:0.0,workingHours:null},
+	      establishment: {name:null,type:null,trainings:null,open:false,location:null,averageGrade:0.0,workingHours:{startTime:null,endTime:null}},
 	      showEmptyMessage: false,
 		  selected: '',
 		  types: [
@@ -29,6 +29,9 @@ Vue.component("addest", {
    				</td></tr>
 			
 			<tr><td>Location</td><td><input type="text" v-model = "establishment.location" name="location"></td></tr>
+			<tr><td>StartTime</td><td><input type="text" v-model = "establishment.workingHours.startTime" name="startTime"></td></tr>
+			<tr><td>EndTime</td><td><input type="text" v-model = "establishment.workingHours.endTime" name="endTime"></td></tr>
+
 			<tr><button v-on:click="Register">Register</button></tr>
 
 			</table>

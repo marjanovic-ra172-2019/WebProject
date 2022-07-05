@@ -156,6 +156,28 @@ private void loadEstablishments(String contextPath){
 		return false;
 		}
 
+	public Collection<SportsEstablishment> searchOpen() {
+		
+		ArrayList<SportsEstablishment> filteredEstablishments = new ArrayList<SportsEstablishment>();
+
+		System.out.println("----------------------------------------");
+
+		for (SportsEstablishment s : establishments) 
+		{
+
+
+			if(s.getWorkingHours().IsOpen()) {
+				System.out.println(s.getName());
+
+				System.out.println(s.getWorkingHours().getStartTime());
+				System.out.println(s.getWorkingHours().getEndTime());
+				filteredEstablishments.add(s);
+				
+			}
+		} 
+		return filteredEstablishments;
+		}
+
 	public Boolean add(SportsEstablishment establishment) {
 		if(establishments.add(establishment))
 			return true;

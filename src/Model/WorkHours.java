@@ -5,7 +5,12 @@ import java.time.format.DateTimeFormatter;  // Import the DateTimeFormatter clas
 public class WorkHours {
 	private String startTime;
 	private String endTime;
-
+	
+	public WorkHours() {
+		super();
+		this.startTime = null;
+		this.endTime = null;
+	}
 	
 	public WorkHours(String StartTime, String EndTime) {
 		super();
@@ -13,11 +18,6 @@ public class WorkHours {
 		this.endTime = EndTime;
 	}
 	
-	public WorkHours() {
-		super();
-		this.startTime = null;
-		this.endTime = null;
-	}
 	
 	public String getStartTime() {
 		return startTime;

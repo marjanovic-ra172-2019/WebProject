@@ -39,7 +39,11 @@ Vue.component("establishments", {
 	    			<td>{{p.location.name}} {{p.location.number}}</td>
 	    			<td>{{p.averageGrade}}</td>
 	    		</tr>
+
 	    	</table>
+	    	
+	    	<button v-on:click="ShowOpen">Prikazi Otvorene</button>
+
 	    	<div v-show="showEmptyMessage">
 	    		<label>Nema nijedan koji odgvara pretrazi</label>
 	    	</div>
@@ -91,7 +95,14 @@ Vue.component("establishments", {
 			}else
 				this.showEmptyMessage=false;
 				return;
-			}
+			},
+		ShowOpen:function(){
+			event.preventDefault();
+				axios
+				.get('rest/establishments/open/')
+				.then(response => (this.establishments = response.data))
+			return;
+		}
 		
 	}
    

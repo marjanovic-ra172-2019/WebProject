@@ -18,7 +18,7 @@ public class SportsEstablishment {
 	public SportsEstablishment() {
 		super();
 		this.name = null;
-		this.type = type.GYM;
+		this.type = EstablishmentType.GYM;
 		this.trainings = null;
 		this.workingHours = null;
 		this.location = null;
