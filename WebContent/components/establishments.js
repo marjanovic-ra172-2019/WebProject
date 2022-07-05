@@ -34,7 +34,7 @@ Vue.component("establishments", {
 	    		</tr>
 	    			
 	    		<tr v-for="p in establishments">
-	    			<td>{{p.name}}</td>
+	    			<td><a :href="'establishments.html#/'+p.name">{{p.name}}</a></td>
 	    			<td>{{p.type}}</td>
 	    			<td>{{p.location.name}} {{p.location.number}}</td>
 	    			<td>{{p.averageGrade}}</td>

@@ -50,7 +50,15 @@ public class EstablishmentService {
 		EstablishmentDAO dao = (EstablishmentDAO) ctx.getAttribute("establishmentDAO");
 		return dao.add(establishment);
 	}	
-
+	
+	@GET
+	@Path("{name}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public SportsEstablishment GetByName(@PathParam("name") String name) {
+		EstablishmentDAO dao = (EstablishmentDAO) ctx.getAttribute("establishmentDAO");
+		return dao.GetByName(name);
+	}
+	
 	@GET
 	@Path("name/{name}")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -66,6 +74,7 @@ public class EstablishmentService {
 		EstablishmentDAO dao = (EstablishmentDAO) ctx.getAttribute("establishmentDAO");
 		return dao.searchType(type);
 	}
+	
 	
 	@GET
 	@Path("address/{address}")

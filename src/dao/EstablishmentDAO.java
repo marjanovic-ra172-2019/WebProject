@@ -74,6 +74,17 @@ private void loadEstablishments(String contextPath){
 
 }
 
+	public SportsEstablishment GetByName(String name) {
+		for (SportsEstablishment s : establishments) 
+		{
+			if(name.equals(s.getName())) {
+				return s;
+			}
+		}
+		return null;
+	}
+
+
 	public Collection<SportsEstablishment> searchNames(String name)
 	{
 		name=name.trim();
@@ -160,19 +171,13 @@ private void loadEstablishments(String contextPath){
 		
 		ArrayList<SportsEstablishment> filteredEstablishments = new ArrayList<SportsEstablishment>();
 
-		System.out.println("----------------------------------------");
 
 		for (SportsEstablishment s : establishments) 
 		{
 
 
 			if(s.getWorkingHours().IsOpen()) {
-				System.out.println(s.getName());
-
-				System.out.println(s.getWorkingHours().getStartTime());
-				System.out.println(s.getWorkingHours().getEndTime());
 				filteredEstablishments.add(s);
-				
 			}
 		} 
 		return filteredEstablishments;

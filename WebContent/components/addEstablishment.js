@@ -32,7 +32,7 @@ Vue.component("addest", {
 			<tr><td>StartTime</td><td><input type="text" v-model = "establishment.workingHours.startTime" name="startTime"></td></tr>
 			<tr><td>EndTime</td><td><input type="text" v-model = "establishment.workingHours.endTime" name="endTime"></td></tr>
 
-			<tr><button v-on:click="Register">Register</button></tr>
+			<tr><button v-on:click="ADDEST">Add new establishment</button></tr>
 
 			</table>
 
@@ -46,7 +46,7 @@ Vue.component("addest", {
        
     },
     methods : {
-		Register: function(){
+		ADDEST	: function(){
 				event.preventDefault();
 						    
 				
