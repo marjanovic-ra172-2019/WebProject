@@ -99,4 +99,12 @@ public class EstablishmentService {
 		EstablishmentDAO dao = (EstablishmentDAO) ctx.getAttribute("establishmentDAO");
 		return dao.searchOpen();
 	}
+	
+	@GET
+	@Path("sort/{field}&{direction}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Collection<SportsEstablishment> sortEstablishments(@PathParam("field") String field,@PathParam("direction") String direction) {
+		EstablishmentDAO dao = (EstablishmentDAO) ctx.getAttribute("establishmentDAO");
+		return dao.sort(field,direction);
+	}
 }

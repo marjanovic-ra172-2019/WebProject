@@ -1,6 +1,7 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 import enums.EstablishmentType;
 
@@ -24,7 +25,7 @@ public class SportsEstablishment {
 		this.location = null;
 		this.averageGrade = 0.0;
 	}
-
+	
 	public SportsEstablishment(String name, EstablishmentType type, String location) {
 		super();
 		this.name = name;
@@ -105,6 +106,6 @@ public class SportsEstablishment {
 		this.workingHours = workingHours;
 	}
 	
-
+	
 
 }

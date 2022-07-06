@@ -2,7 +2,8 @@ Vue.component("establishments", {
 	data: function () {
 		var Data
 	    return {
-		
+		  sort_direction: 'desc',
+		  sort_field: 'created_at',
 	      establishments: null,
 	      establishment: {name: null, type:null, grade:null},
 	      showEmptyMessage: false,
@@ -27,10 +28,26 @@ Vue.component("establishments", {
    				</select>
     		<table border="1">
 	    		<tr bgcolor="lightgrey">
-	    			<th>Naziv</th>
-	    			<th>Tip</th>
-	    			<th>Adresa</th>
-	    			<th>Prosecna ocena</th>
+	    			<th>
+	    			<a href="#" @click.prevent="change_sort('name')">Naziv</a>
+	    			<span>&uarr;</span>
+	    			<span>&darr;</span>
+	    			</th>
+	    			<th>
+	    			<a href="#" @click.prevent="change_sort('type')">Tip</a>
+	    			<span>&uarr;</span>
+	    			<span>&darr;</span>
+	    			</th>
+	    			<th>
+	    			<a href="#" @click.prevent="change_sort('location')">Adresa</a>
+	    			<span>&uarr;</span>
+	    			<span>&darr;</span>
+	    			</th>
+	    			<th>
+	    			<a href="#" @click.prevent="change_sort('averagegrade')">Prosecna ocena</a>
+	    			<span>&uarr;</span>
+	    			<span>&darr;</span>
+	    			</th>
 	    		</tr>
 	    			
 	    		<tr v-for="p in establishments">
@@ -102,6 +119,20 @@ Vue.component("establishments", {
 				.get('rest/establishments/open/')
 				.then(response => (this.establishments = response.data))
 			return;
+		},
+		change_sort(field)
+		{
+			if(this.sort_field==field)
+			{
+				this.sort_direction=="asc"?"desc":"asc";
+			}else
+			{
+				this.sort_field=field;
+				this.sort_direction="desc";
+			}
+			axios.
+			get('rest/establishments/'+this.sort_field+'&'+this.sort_direction)
+			.then(response => (this.establishments = response.data));		
 		}
 		
 	}

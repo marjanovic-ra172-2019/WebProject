@@ -5,6 +5,9 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+
 import enums.EstablishmentType;
 import Model.Address;
 import Model.SportsEstablishment;
@@ -187,4 +190,74 @@ private void loadEstablishments(String contextPath){
 		if(establishments.add(establishment))
 			return true;
 		return false;	}
+
+	Comparator<SportsEstablishment> compareByName = new Comparator<SportsEstablishment>() {
+		@Override
+		public int compare(SportsEstablishment o1, SportsEstablishment o2) {
+			return o1.getName().compareTo(o2.getName());
+		}
+	};
+
+	Comparator<SportsEstablishment> compareByType = new Comparator<SportsEstablishment>() {
+		@Override
+		public int compare(SportsEstablishment o1, SportsEstablishment o2) {
+			return o1.getType().compareTo(o2.getType());
+		}
+	};
+	Comparator<SportsEstablishment> compareByAdress = new Comparator<SportsEstablishment>() {
+		@Override
+		public int compare(SportsEstablishment o1, SportsEstablishment o2) {
+			return o1.getLocation().getName().compareTo(o2.getLocation().getName());
+		}
+	};
+	Comparator<SportsEstablishment> compareByGrade = new Comparator<SportsEstablishment>() {
+		@Override
+		public int compare(SportsEstablishment o1, SportsEstablishment o2) {
+			return o1.getAverageGrade().compareTo(o2.getAverageGrade());
+		}
+	};
+
+	public Collection<SportsEstablishment> sort(String field, String direction) {
+		ArrayList<SportsEstablishment> copy=establishments;
+		if(direction.equals("asc")) {
+			switch(field.toLowerCase()) {
+			
+			case "name":
+				Collections.sort(copy,compareByName);
+				break;
+			case "type":
+				Collections.sort(copy,compareByType);
+				break;
+			case "location":
+				Collections.sort(copy,compareByAdress);
+				break;
+			case "averagegrade":
+				Collections.sort(copy,compareByGrade);
+				break;
+			}
+
+		} else if(direction.equals("desc"))
+		{
+			switch(field.toLowerCase()) {
+			
+			case "name":
+				Collections.sort(copy,compareByName.reversed());
+				break;
+			case "type":
+				Collections.sort(copy,compareByType.reversed());
+				break;
+			case "location":
+				Collections.sort(copy,compareByAdress.reversed());
+				break;
+			case "averagegrade":
+				Collections.sort(copy,compareByGrade.reversed());
+				break;
+			}
+			
+		}
+		return copy;
+	}
+	
+	
+	
 }
