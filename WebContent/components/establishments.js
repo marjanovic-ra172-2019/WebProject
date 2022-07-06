@@ -30,23 +30,23 @@ Vue.component("establishments", {
 	    		<tr bgcolor="lightgrey">
 	    			<th>
 	    			<a href="#" @click.prevent="change_sort('name')">Naziv</a>
-	    			<span>&uarr;</span>
-	    			<span>&darr;</span>
+	    			<span v-if="sort_direction=='desc'&& sort_field=='name'">&uarr;</span>
+	    			<span v-if="sort_direction=='asc'&& sort_field=='name'">&darr;</span>
 	    			</th>
 	    			<th>
 	    			<a href="#" @click.prevent="change_sort('type')">Tip</a>
-	    			<span>&uarr;</span>
-	    			<span>&darr;</span>
+	    			<span v-if="sort_direction=='desc'&& sort_field=='type'">&uarr;</span>
+	    			<span v-if="sort_direction=='asc'&& sort_field=='type'">&darr;</span>
 	    			</th>
 	    			<th>
 	    			<a href="#" @click.prevent="change_sort('location')">Adresa</a>
-	    			<span>&uarr;</span>
-	    			<span>&darr;</span>
+	    			<span v-if="sort_direction=='desc'&& sort_field=='location'">&uarr;</span>
+	    			<span v-if="sort_direction=='asc'&& sort_field=='location'">&darr;</span>
 	    			</th>
 	    			<th>
 	    			<a href="#" @click.prevent="change_sort('averagegrade')">Prosecna ocena</a>
-	    			<span>&uarr;</span>
-	    			<span>&darr;</span>
+	    			<span  v-if="sort_direction=='asc'&& sort_field=='averagegrade'">&uarr;</span>
+	    			<span  v-if="sort_direction=='asc'&& sort_field=='averagegrade'">&darr;</span>
 	    			</th>
 	    		</tr>
 	    			
