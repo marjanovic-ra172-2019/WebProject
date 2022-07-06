@@ -15,6 +15,7 @@ import Model.SportsEstablishment;
 public class EstablishmentDAO {
 
 	private static ArrayList<SportsEstablishment> establishments = new ArrayList<SportsEstablishment>();
+	private static ArrayList<SportsEstablishment> filteredEstablishments=new ArrayList<SportsEstablishment>();
 
 public EstablishmentDAO() {
 	}
@@ -91,8 +92,9 @@ private void loadEstablishments(String contextPath){
 	public Collection<SportsEstablishment> searchNames(String name)
 	{
 		name=name.trim();
-		ArrayList<SportsEstablishment> filteredEstablishments = new ArrayList<SportsEstablishment>();
-
+		if (!filteredEstablishments.isEmpty()) {
+			filteredEstablishments= new ArrayList<SportsEstablishment>();
+		}
 		
 		for (SportsEstablishment s : establishments) 
 		{
@@ -110,8 +112,9 @@ private void loadEstablishments(String contextPath){
 	public Collection<SportsEstablishment> searchType(String type) {
 
 		type=type.trim();
-		ArrayList<SportsEstablishment> filteredEstablishments = new ArrayList<SportsEstablishment>();
-
+		if (!filteredEstablishments.isEmpty()) {
+			filteredEstablishments= new ArrayList<SportsEstablishment>();
+		}
 		
 		for (SportsEstablishment s : establishments) 
 		{
@@ -130,8 +133,9 @@ private void loadEstablishments(String contextPath){
 	public Collection<SportsEstablishment> searchAddress(String address) {
 
 		address=address.trim();
-		ArrayList<SportsEstablishment> filteredEstablishments = new ArrayList<SportsEstablishment>();
-
+		if (!filteredEstablishments.isEmpty()) {
+			filteredEstablishments= new ArrayList<SportsEstablishment>();
+		}
 		
 		for (SportsEstablishment s : establishments) 
 		{
@@ -152,8 +156,9 @@ private void loadEstablishments(String contextPath){
 
 	public Collection<SportsEstablishment> searchGrade(String grade) {
 		
-		ArrayList<SportsEstablishment> filteredEstablishments = new ArrayList<SportsEstablishment>();
-
+		if (!filteredEstablishments.isEmpty()) {
+			filteredEstablishments= new ArrayList<SportsEstablishment>();
+		}
 		
 		for (SportsEstablishment s : establishments) 
 		{
@@ -172,8 +177,9 @@ private void loadEstablishments(String contextPath){
 
 	public Collection<SportsEstablishment> searchOpen() {
 		
-		ArrayList<SportsEstablishment> filteredEstablishments = new ArrayList<SportsEstablishment>();
-
+		if (!filteredEstablishments.isEmpty()) {
+			filteredEstablishments= new ArrayList<SportsEstablishment>();
+		}
 
 		for (SportsEstablishment s : establishments) 
 		{
@@ -218,21 +224,23 @@ private void loadEstablishments(String contextPath){
 	};
 
 	public Collection<SportsEstablishment> sort(String field, String direction) {
-		ArrayList<SportsEstablishment> copy=establishments;
+		if (filteredEstablishments.isEmpty()) {
+			filteredEstablishments=establishments;
+		}
 		if(direction.equals("asc")) {
 			switch(field.toLowerCase()) {
 			
 			case "name":
-				Collections.sort(copy,compareByName);
+				Collections.sort(filteredEstablishments,compareByName);
 				break;
 			case "type":
-				Collections.sort(copy,compareByType);
+				Collections.sort(filteredEstablishments,compareByType);
 				break;
 			case "location":
-				Collections.sort(copy,compareByAdress);
+				Collections.sort(filteredEstablishments,compareByAdress);
 				break;
 			case "averagegrade":
-				Collections.sort(copy,compareByGrade);
+				Collections.sort(filteredEstablishments,compareByGrade);
 				break;
 			}
 
@@ -241,21 +249,21 @@ private void loadEstablishments(String contextPath){
 			switch(field.toLowerCase()) {
 			
 			case "name":
-				Collections.sort(copy,compareByName.reversed());
+				Collections.sort(filteredEstablishments,compareByName.reversed());
 				break;
 			case "type":
-				Collections.sort(copy,compareByType.reversed());
+				Collections.sort(filteredEstablishments,compareByType.reversed());
 				break;
 			case "location":
-				Collections.sort(copy,compareByAdress.reversed());
+				Collections.sort(filteredEstablishments,compareByAdress.reversed());
 				break;
 			case "averagegrade":
-				Collections.sort(copy,compareByGrade.reversed());
+				Collections.sort(filteredEstablishments,compareByGrade.reversed());
 				break;
 			}
 			
 		}
-		return copy;
+		return filteredEstablishments;
 	}
 	
 	

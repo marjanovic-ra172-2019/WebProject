@@ -105,8 +105,6 @@ public class EstablishmentService {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Collection<SportsEstablishment> sortEstablishments(@PathParam("field") String field,@PathParam("direction") String direction) {
 		EstablishmentDAO dao = (EstablishmentDAO) ctx.getAttribute("establishmentDAO");
-		System.out.println(field);
-		System.out.println(direction);
 		return dao.sort(field,direction);
 	}
 }
