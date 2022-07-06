@@ -122,16 +122,19 @@ Vue.component("establishments", {
 		},
 		change_sort(field)
 		{
-			if(this.sort_field==field)
+			if(this.sort_field===field)
 			{
-				this.sort_direction=="asc"?"desc":"asc";
+				if(this.sort_direction=="asc")
+				this.sort_direction="desc"
+				else
+				this.sort_direction="asc";
 			}else
 			{
 				this.sort_field=field;
 				this.sort_direction="desc";
 			}
 			axios.
-			get('rest/establishments/'+this.sort_field+'&'+this.sort_direction)
+			get('rest/establishments/sort/'+this.sort_field+'&'+this.sort_direction)
 			.then(response => (this.establishments = response.data));		
 		}
 		
